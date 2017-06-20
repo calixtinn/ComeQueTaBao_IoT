@@ -98,11 +98,7 @@
 						}
 				?>
 
-                <br>
-                <br>
-
-                A cozinha ira pedir confirmação do pedido, por favor, verifique a tela presente na mesa.<br>
-                Obrigado
+              O seu pedido foi enviado à cozinha e logo estará pronto!
 
 			</div>
 				                    

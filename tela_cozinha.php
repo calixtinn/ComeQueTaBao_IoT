@@ -1,6 +1,5 @@
 <html>
 <head>
-<meta charset='utf-8'>
 </head>
 <body>
 
@@ -43,8 +42,5 @@ $link->close();
 ?>
    
 </table>
-<p>
-<a href="apaga_pedidos.php">Apagar Pedidos</a>
-</p>
 </body>
 </html>
