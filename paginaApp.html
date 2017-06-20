@@ -1,0 +1,249 @@
+<html>
+<head>
+
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css' integrity='2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj' crossorigin='anonymous'>
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js' integrity='sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB' crossorigin='anonymous'></script>
+    
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js' integrity='VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU' crossorigin='anonymous'></script>
+    
+    <title>ComeQueTaBao</title>
+    
+ </head> 
+  
+ <body> 
+  
+    <nav class='navbar navbar-fixed-top navbar-dark bg-inverse bg-faded'>
+        <font class='lead'>Auto Atendimento</font>
+    </nav>
+  
+    <div class='container-fluid'>
+        
+        <div class='row'>
+  
+            <div class='col-lg-2 col-md-2 col-sm-12'></div>
+  
+            <div class='col-lg-8 col-md-8 col-sm-12'>   
+                
+                <br><br><br>
+                    <div class="list-group">
+                    <h4>Por favor, selecione sua mesa:</h4> 
+                    
+                    <select id="mesa">
+                      <option>Mesa 1</option>
+                      <option>Mesa 2</option>
+                      <option>Mesa 3</option>
+                    </select>
+
+                    <br><br>
+                        <a href="#" onclick="ModalItem('Macarrão na chapa', 'Serve 1 pessoa<br> Ingredientes: Macarrão, bacon, calabresa, milho', 7.00, cont1)" class="list-group-item desactive" data-toggle="modal" data-target="#myModal" >
+                            <h4 class="list-group-item-heading">Macarrão na chapa</h4><span class="badge">R$7,00</span>
+                            <p class="list-group-item-text">Macarrão, bacon, calabresa, milho</p>
+
+                        </a>
+                        <a href="#" onclick="ModalItem('Panqueca', 'Serve 2 pessoas<br> Ingredientes: Frango, pressunto, mussarela, catupiry', 15.00, cont2)" class="list-group-item desactive" data-toggle="modal" data-target="#myModal">
+                            <h4 class="list-group-item-heading">Panqueca</h4><span class="badge">R$15,00</span>
+                            <p class="list-group-item-text">Frango, pressunto, mussarela, catupiry</p>
+                        </a>
+                        <a href="#" onclick="ModalItem('Fritas', 'Serve 2 pessoa<br> Ingredientes: Batata, queijo, bacon', 10.00, cont3)" class="list-group-item desactive" data-toggle="modal" data-target="#myModal">
+                            <h4 class="list-group-item-heading">Fritas</h4><span class="badge">R$10,00</span>
+                            <p class="list-group-item-text">Batata, queijo, bacon</p>
+                        </a>
+                        <a href="#" onclick="ModalItem('Espetinho', 'Serve 1 pessoa<br> Ingredientes: Carne (frango, bovina, suina), molho de tomate, farinha de mandioca', 7.00, cont4)" class="list-group-item desactive" data-toggle="modal" data-target="#myModal">
+                            <h4 class="list-group-item-heading">Espetinho</h4><span class="badge">R$7,00</span>
+                            <p class="list-group-item-text">Carnes: Frango, bovina, suína</p>
+                        </a>
+                        <button type="submit" onclick="ModalPedido()" class="btn btn-primary btn-block" data-toggle="modal" data-target="#modalFazerPedido">Fazer Pedido</button>
+                     </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel"></h4>
+                          </div>
+                          <div class="modal-body">
+                               <p id="myModalBody"></p>
+                               <div class="btn-group" role="group" aria-label="...">
+                                    <button type="button" onclick="dec(document.getElementById('myModalLabel').innerHTML)" class="btn btn-primary">-</button>
+                                    <button type="button" class="btn btn-default" id="contadorItem">0</button>
+                                    <button type="button" onclick="inc(document.getElementById('myModalLabel').innerHTML)" class="btn btn-primary">+</button>
+                                </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Continuar Comprando</button>
+                            <!--<button type="button" class="btn btn-primary">Salvar Pedido</button>-->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--End Modal-->
+                    <!--Modal-->
+                    <div class="modal fade" id="modalFazerPedido" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                           
+                           <h4 class="modal-title" id="modalFazerPedidoTitle">CONFIRMAÇÃO DE PEDIDO</h4>
+                          </div>
+                          <div class="modal-body">
+
+                              <p id="modalFazerPedidoBody"></p>                         
+
+
+                          </div>
+                          <div class="modal-footer">
+
+                            <form>                             
+                          
+                              <button type="button" onclick="limparPedido()" class="btn btn-default" data-dismiss="modal">Cancelar</button>                          
+                              <button type="submit" onclick="window.open('infoPedido.php?pedidoFinal='+pedidoFinal+'&valorFinal='+valorFinal+'&mesa='+mesa)" class="btn btn-primary" data-dismiss="modal">Finalizar Pedido</button>
+
+                            </form>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                <!--End Modal-->
+  			   </div>
+            
+            <div class='col-lg-2 col-md-2 col-sm-12'></div>
+         
+
+    	</div>  
+    
+    </div> 
+
+    <nav class='navbar navbar-fixed-bottom bg-faded'>
+        <p class='lead' align='center'>ComeQueTaBao</p>
+    </nav>
+
+<script>
+var cont1 = 0;
+var cont2 = 0;
+var cont3 = 0;
+var cont4 = 0;
+var valorFinal = 0;
+var precoProduto = 0;
+var pedidoFinal = "";
+var mesa ="";
+
+function ModalItem (IDitem, descItem, precoItem, contador){
+    document.getElementById("myModalLabel").innerHTML = IDitem;
+    document.getElementById("myModalBody").innerHTML = descItem;
+    document.getElementById("contadorItem").innerHTML = contador;
+    precoProduto = precoItem;
+}
+
+function limparPedido(){
+  pedidoFinal = "";  
+  console.log(valorFinal);
+}
+
+function ModalPedido (){
+  pedidoFinal = "";
+    if (cont1 > 0){
+        pedidoFinal = pedidoFinal+cont1+" - "+"Macarrão na chapa <br>";
+        console.log(pedidoFinal);    
+        console.log(valorFinal);
+    }
+    if (cont2 > 0){
+        pedidoFinal = pedidoFinal+cont2+" - "+"Panqueca <br>";
+        console.log(pedidoFinal); 
+        console.log(valorFinal);
+    }
+    if (cont3 > 0){
+        pedidoFinal = pedidoFinal+cont3+" - "+"Fritas <br>";
+        console.log(pedidoFinal); 
+        console.log(valorFinal);
+    }
+    if (cont4 > 0){
+        pedidoFinal = pedidoFinal+cont4+" - "+"Espetinho <br>";
+        console.log(pedidoFinal); 
+        console.log(valorFinal);
+    }
+
+    mesa = document.getElementById("mesa").value;
+
+    document.getElementById("modalFazerPedidoBody").innerHTML = pedidoFinal+"<br><br> TOTAL: R$"+valorFinal+",00";
+}
+
+function inc(id) {    
+    console.log(id);
+    if(id == "Macarrão na chapa"){
+        valorFinal = valorFinal-((precoProduto)*cont1);
+        cont1 =  cont1+1;
+        document.getElementById("contadorItem").innerHTML = cont1;
+        valorFinal = valorFinal+((precoProduto)*cont1);
+        console.log(valorFinal);
+    }
+    else if (id == "Panqueca"){
+        valorFinal = valorFinal-((precoProduto)*cont2);
+        cont2 = cont2+1;
+        document.getElementById("contadorItem").innerHTML = cont2;
+        valorFinal = valorFinal+((precoProduto)*cont2);
+    }
+    else if (id == "Fritas"){
+        valorFinal = valorFinal-((precoProduto)*cont3);
+        cont3 = cont3+1;
+        document.getElementById("contadorItem").innerHTML = cont3;
+        valorFinal = valorFinal+((precoProduto)*cont3);
+    }
+    else if (id == "Espetinho"){
+        valorFinal = valorFinal-((precoProduto)*cont4);
+        cont4 = cont4+1;
+        document.getElementById("contadorItem").innerHTML = cont4;
+        valorFinal = valorFinal+((precoProduto)*cont4);
+    }
+}
+
+function dec(id) {
+    console.log(id);
+    if(id == "Macarrão na chapa"){
+        if (cont1>0){
+          cont1 =  cont1-1;  
+          valorFinal = valorFinal-precoProduto;
+        }
+        console.log(valorFinal);
+        document.getElementById("contadorItem").innerHTML = cont1;
+    }
+    else if (id == "Panqueca"){
+         if (cont2>0){
+          cont2 =  cont2-1;  
+          valorFinal = valorFinal-precoProduto;
+        }
+        console.log(valorFinal);
+        document.getElementById("contadorItem").innerHTML = cont2;
+    }
+    else if (id == "Fritas"){
+         if (cont3>0){
+          cont3 =  cont3-1;  
+          valorFinal = valorFinal-precoProduto;
+        }
+        console.log(valorFinal);
+        document.getElementById("contadorItem").innerHTML = cont3;
+    }
+    else if (id == "Espetinho"){
+         if (cont4>0){
+          cont4 =  cont4-1;  
+          valorFinal = valorFinal-precoProduto; 
+        }
+        console.log(valorFinal);
+        document.getElementById("contadorItem").innerHTML = cont4;
+    }
+}
+</script>
+
+</body>
+  
+</html>

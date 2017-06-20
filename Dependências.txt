@@ -1,0 +1,11 @@
+# Update the repository
+sudo add-apt-repository ppa:ondrej/php
+sudo apt-get update
+
+# Install Apache, Mysql and Apache
+sudo apt-get install -y php7.1-mbstring php7.1-xml libapache2-mod-php php7.1-cli php7.1-common libapache2-mod-php7.1 php7.1 php7.1-mysql php7.1-fpm php7.1-curl php7.1-gd php7.1-bz2 apache2
+
+# Enable php7.1 module
+sudo a2enmod php7.1
+
+Como Iniciar o Server PHP : php -S localhost:8000
